@@ -1,0 +1,48 @@
+-- Script to create admin user
+-- This SQL should be executed in Supabase SQL Editor or via psql
+
+-- Create admin user using auth.users table
+-- Email: ngugi@promptbi.ai
+-- Password: prompt2025Nairobi
+
+-- Note: This uses Supabase's internal auth schema
+-- You may need to use the Supabase Dashboard > Authentication > Add User instead
+-- Or use the Management API
+
+-- For manual creation via Dashboard:
+-- 1. Go to Supabase Dashboard
+-- 2. Navigate to Authentication > Users
+-- 3. Click "Add User"
+-- 4. Enter:
+--    Email: ngugi@promptbi.ai
+--    Password: prompt2025Nairobi
+--    Confirm Password: prompt2025Nairobi
+--    Auto Confirm User: YES (check this box)
+-- 5. Click "Create User"
+
+-- Alternative: Use this SQL if you have access to auth schema
+-- INSERT INTO auth.users (
+--   instance_id,
+--   id,
+--   aud,
+--   role,
+--   email,
+--   encrypted_password,
+--   email_confirmed_at,
+--   created_at,
+--   updated_at,
+--   confirmation_token,
+--   recovery_token
+-- ) VALUES (
+--   '00000000-0000-0000-0000-000000000000',
+--   gen_random_uuid(),
+--   'authenticated',
+--   'authenticated',
+--   'ngugi@promptbi.ai',
+--   crypt('prompt2025Nairobi', gen_salt('bf')),
+--   now(),
+--   now(),
+--   now(),
+--   '',
+--   ''
+-- );
