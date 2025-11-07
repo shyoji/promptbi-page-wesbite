@@ -28,8 +28,7 @@ export default function ExitIntentPopup({ onCTAClick }: ExitIntentPopupProps) {
   };
 
   const handleCTA = () => {
-    setShow(false);
-    onCTAClick();
+    window.location.href = 'https://app.promptbi.ai/register/';
   };
 
   if (!show) return null;

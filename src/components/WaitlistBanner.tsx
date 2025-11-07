@@ -56,7 +56,7 @@ export default function WaitlistBanner({ onCTAClick }: WaitlistBannerProps) {
             </p>
 
             <button
-              onClick={onCTAClick}
+              onClick={() => window.location.href = 'https://app.promptbi.ai/register/'}
               className="w-full bg-white text-gray-900 px-6 py-3 rounded-xl font-bold hover:shadow-xl transition-all"
             >
               Claim Beta Spot
