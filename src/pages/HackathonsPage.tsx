@@ -101,7 +101,7 @@ export default function HackathonsPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": "DEKUT Data Hackathon",
+    "name": "Internship Hackathon",
     "description": "Live data analytics competition with challenges in SQL, BI, and data visualization",
     "startDate": "2025-11-01",
     "endDate": "2025-11-30",
@@ -128,9 +128,9 @@ export default function HackathonsPage() {
     <div className="min-h-screen" style={{ backgroundColor: '#0D0D0F' }}>
       <SEO
         title="Data Hackathons & Analytics Competitions - Win Prizes | PromptBI"
-        description="Join live data hackathons with $50K+ prize pools. DEKUT Data Hackathon featuring real-world BI challenges, SQL competitions, and analytics projects. Register now!"
+        description="Join live data hackathons with $50K+ prize pools. Internship Hackathon featuring real-world BI challenges, SQL competitions, and analytics projects. Register now!"
         keywords="data hackathon, analytics competition, SQL hackathon, business intelligence contest, data science competition, hackathon prizes, coding challenge event, data analyst competition, DEKUT hackathon"
-        ogTitle="DEKUT Data Hackathon - $50K Prize Pool"
+        ogTitle="Internship Hackathon - $50K Prize Pool"
         ogDescription="Compete in exciting data analytics challenges. Join participants worldwide for glory and prizes."
         ogImage="https://promptbi.ai/og-image-hackathon.png"
         ogType="event"
@@ -152,7 +152,7 @@ export default function HackathonsPage() {
               <span className="text-sm font-medium text-white/90">Live Competitions</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              DEKUT Data Hackathon
+              Internship Hackathon
             </h1>
             <p className="text-xl text-white/70 max-w-2xl mx-auto">
               Join exciting challenges, showcase your skills, and compete with the best data talent globally
@@ -373,7 +373,7 @@ export default function HackathonsPage() {
 
                       <div className="flex-shrink-0 w-48 hidden lg:block">
                         <div className="flex items-center justify-between text-xs text-white/60 mb-2">
-                          <span className="font-medium">Challenge Progress</span>
+                          <span className="font-medium">Code Logic</span>
                           <span className="font-bold text-white">{participant.progress}%</span>
                         </div>
                         <div className="relative w-full h-3 bg-white/10 rounded-full overflow-hidden shadow-inner">
@@ -401,7 +401,7 @@ export default function HackathonsPage() {
 
                     <div className="lg:hidden px-5 pb-4">
                       <div className="flex items-center justify-between text-xs text-white/60 mb-2">
-                        <span className="font-medium">Challenge Progress</span>
+                        <span className="font-medium">Code Logic</span>
                         <span className="font-bold text-white">{participant.progress}%</span>
                       </div>
                       <div className="relative w-full h-2.5 bg-white/10 rounded-full overflow-hidden shadow-inner">

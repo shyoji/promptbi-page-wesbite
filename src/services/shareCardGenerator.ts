@@ -54,7 +54,7 @@ export const generateShareCard = async (data: ShareCardData): Promise<string> =>
   ctx.textAlign = 'left';
   ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
   ctx.font = 'bold 24px system-ui, -apple-system, sans-serif';
-  ctx.fillText('DEKUT DATA HACKATHON', 80, 100);
+  ctx.fillText('INTERNSHIP HACKATHON', 80, 100);
 
   ctx.fillStyle = '#FFFFFF';
   ctx.font = '900 220px system-ui, -apple-system, sans-serif';
@@ -144,7 +144,7 @@ export const generateShareCard = async (data: ShareCardData): Promise<string> =>
 
 export const generateLinkedInPost = (rank: number, totalParticipants: number): string => {
   const percentile = Math.round((rank / totalParticipants) * 100);
-  return `🎉 Just secured Rank #${rank} out of ${totalParticipants.toLocaleString()} participants in the @PromptBI DEKUT Data Hackathon! 🏆
+  return `🎉 Just secured Rank #${rank} out of ${totalParticipants.toLocaleString()} participants in the @PromptBI Internship Hackathon! 🏆
 
 Top ${percentile}% and climbing! 📈
 

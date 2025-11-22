@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Trophy, Flame, Star, Medal, TrendingUp, Award, Zap, ChevronDown, RefreshCw, Target } from 'lucide-react';
+import { Trophy, Flame, Star, Medal, TrendingUp, Award, Zap, ChevronDown, RefreshCw, Target, Search } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
@@ -195,6 +195,7 @@ export default function LeaderboardPage() {
   const [error, setError] = useState<string | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [selectedLevel, setSelectedLevel] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   const loadLeaderboard = async (showRefreshIndicator = false) => {
     try {
@@ -223,13 +224,22 @@ export default function LeaderboardPage() {
   }, [timeFrame]);
 
   useEffect(() => {
-    if (selectedLevel === 'all') {
-      setFilteredData(leaderboardData);
-    } else {
-      const filtered = leaderboardData.filter(user => user.level === selectedLevel);
-      setFilteredData(filtered);
+    let filtered = leaderboardData;
+
+    if (selectedLevel !== 'all') {
+      filtered = filtered.filter(user => user.level === selectedLevel);
     }
-  }, [selectedLevel, leaderboardData]);
+
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim();
+      filtered = filtered.filter(user =>
+        user.name.toLowerCase().includes(query) ||
+        user.email.toLowerCase().includes(query)
+      );
+    }
+
+    setFilteredData(filtered);
+  }, [selectedLevel, leaderboardData, searchQuery]);
 
   const uniqueLevels = Array.from(new Set(leaderboardData.map(user => user.level))).sort();
 
@@ -275,19 +285,20 @@ export default function LeaderboardPage() {
             </button>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="flex gap-2 bg-white rounded-xl p-1.5 shadow-sm border border-gray-200">
-              <button
-                onClick={() => setTimeFrame('today')}
-                className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-                  timeFrame === 'today'
-                    ? 'text-white shadow-md'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-                }`}
-                style={timeFrame === 'today' ? { backgroundColor: '#2039E5' } : {}}
-              >
-                Today
-              </button>
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex gap-2 bg-white rounded-xl p-1.5 shadow-sm border border-gray-200">
+                <button
+                  onClick={() => setTimeFrame('today')}
+                  className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all ${
+                    timeFrame === 'today'
+                      ? 'text-white shadow-md'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  }`}
+                  style={timeFrame === 'today' ? { backgroundColor: '#2039E5' } : {}}
+                >
+                  Today
+                </button>
               <button
                 onClick={() => setTimeFrame('week')}
                 className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all ${
@@ -348,6 +359,26 @@ export default function LeaderboardPage() {
               </select>
               <ChevronDown className="w-4 h-4 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
+          </div>
+
+          <div className="relative">
+            <Search className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <input
+              type="text"
+              placeholder="Search by name or email..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-2.5 rounded-xl text-sm bg-white border border-gray-200 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                ✕
+              </button>
+            )}
+          </div>
           </div>
         </div>
 
@@ -431,7 +462,8 @@ export default function LeaderboardPage() {
                     </div>
                   </div>
 
-                  <h3 className="font-bold text-xl mb-4" style={{ color: '#0F0E0E' }}>{user.name}</h3>
+                  <h3 className="font-bold text-xl mb-1" style={{ color: '#0F0E0E' }}>{user.name}</h3>
+                  <p className="text-xs text-gray-500 mb-4">{user.email}</p>
 
                   <div className="space-y-3 mb-5">
                     <div className="flex items-center justify-between">
@@ -524,8 +556,13 @@ export default function LeaderboardPage() {
                             <span className={`transition-transform ${hoveredRow === user.rank ? 'scale-110' : 'scale-100'}`} style={{ fontSize: '1.75rem' }}>
                               {user.avatar}
                             </span>
-                            <div className="text-sm font-semibold" style={{ color: '#0F0E0E' }}>
-                              {user.name}
+                            <div>
+                              <div className="text-sm font-semibold" style={{ color: '#0F0E0E' }}>
+                                {user.name}
+                              </div>
+                              <div className="text-xs text-gray-500">
+                                {user.email}
+                              </div>
                             </div>
                           </div>
                         </td>

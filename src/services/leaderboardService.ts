@@ -32,34 +32,42 @@ const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000;
 
 const getDateRange = (timeFrame: 'today' | 'week' | 'month' | 'all'): { fromDate: string; toDate: string } => {
-  const today = new Date();
-  const toDate = today.toISOString().split('T')[0];
+  const now = new Date();
+  const toDate = now.toISOString();
 
   let fromDate: string;
 
   switch (timeFrame) {
     case 'today': {
-      fromDate = toDate;
+      const startOfToday = new Date(now);
+      startOfToday.setUTCHours(0, 0, 0, 0);
+      fromDate = startOfToday.toISOString();
       break;
     }
     case 'week': {
-      const weekAgo = new Date(today);
+      const weekAgo = new Date(now);
       weekAgo.setDate(weekAgo.getDate() - 7);
-      fromDate = weekAgo.toISOString().split('T')[0];
+      weekAgo.setUTCHours(0, 0, 0, 0);
+      fromDate = weekAgo.toISOString();
       break;
     }
     case 'month': {
-      const monthAgo = new Date(today);
+      const monthAgo = new Date(now);
       monthAgo.setMonth(monthAgo.getMonth() - 1);
-      fromDate = monthAgo.toISOString().split('T')[0];
+      monthAgo.setUTCHours(0, 0, 0, 0);
+      fromDate = monthAgo.toISOString();
       break;
     }
     case 'all': {
-      fromDate = '2024-01-01';
+      const startDate = new Date('2024-01-01');
+      startDate.setUTCHours(0, 0, 0, 0);
+      fromDate = startDate.toISOString();
       break;
     }
     default:
-      fromDate = toDate;
+      const startOfToday = new Date(now);
+      startOfToday.setUTCHours(0, 0, 0, 0);
+      fromDate = startOfToday.toISOString();
   }
 
   return { fromDate, toDate };
@@ -112,8 +120,8 @@ export async function fetchLeaderboard(
   let toDate: string;
 
   if (timeFrame === 'hackathon') {
-    fromDate = '2025-10-18';
-    toDate = '2025-10-20';
+    fromDate = '2025-11-21T00:30:00Z';
+    toDate = '2025-11-23T18:29:59Z';
   } else {
     const dateRange = getDateRange(timeFrame);
     fromDate = dateRange.fromDate;
