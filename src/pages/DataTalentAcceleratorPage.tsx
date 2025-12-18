@@ -91,7 +91,9 @@ export default function DataTalentAcceleratorPage() {
               <span>Apply for Cohort 1</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 border border-white/10">
+            <button
+              onClick={() => window.location.href = 'https://app.promptbi.ai/apps/ai/'}
+              className="px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 border border-white/10">
               Learn More
             </button>
           </div>

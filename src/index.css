@@ -80,7 +80,6 @@
     }
   }
 
-<<<<<<< HEAD
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -96,12 +95,6 @@
     from {
       opacity: 0;
       transform: scale(0.96);
-=======
-  @keyframes scaleIn {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
->>>>>>> 612f09d0ee2957f349cab675c0f7ac358bb88076
     }
     to {
       opacity: 1;
@@ -109,7 +102,6 @@
     }
   }
 
-<<<<<<< HEAD
   @keyframes slideDown {
     from {
       opacity: 0;
@@ -145,19 +137,10 @@
     }
     50% {
       box-shadow: 0 0 40px rgba(32, 57, 229, 0.5);
-=======
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
->>>>>>> 612f09d0ee2957f349cab675c0f7ac358bb88076
     }
   }
 
   .animate-fadeIn {
-<<<<<<< HEAD
     animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -179,19 +162,11 @@
 
   .animate-glow {
     animation: glow 2s ease-in-out infinite;
-=======
-    animation: fadeIn 0.4s ease-out;
-  }
-
-  .animate-scaleIn {
-    animation: scaleIn 0.3s ease-out;
->>>>>>> 612f09d0ee2957f349cab675c0f7ac358bb88076
   }
 
   .animation-reverse {
     animation-direction: reverse;
   }
-<<<<<<< HEAD
 
   .animation-delay-100 {
     animation-delay: 100ms;
@@ -237,6 +212,4 @@
                 0 20px 60px -10px rgba(0, 0, 0, 0.12),
                 0 0 0 1px rgba(0, 0, 0, 0.04);
   }
-=======
->>>>>>> 612f09d0ee2957f349cab675c0f7ac358bb88076
 }

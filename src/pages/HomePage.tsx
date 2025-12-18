@@ -1,17 +1,10 @@
 import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
-<<<<<<< HEAD
 import FeaturedPlans from '../components/FeaturedPlans';
 import BeforeAfterComparison from '../components/BeforeAfterComparison';
 import HowItWorks from '../components/HowItWorks';
 import TrustedBy from '../components/TrustedBy';
-=======
-import DataIntegration from '../components/DataIntegration';
-import ChatWithData from '../components/ChatWithData';
-import HireExperts from '../components/HireExperts';
-import Partners from '../components/Partners';
->>>>>>> 612f09d0ee2957f349cab675c0f7ac358bb88076
 import Footer from '../components/Footer';
 import BetaSignupForm from '../components/BetaSignupForm';
 import SEO from '../components/SEO';
@@ -46,11 +39,7 @@ export default function HomePage() {
   };
 
   return (
-<<<<<<< HEAD
     <div className="min-h-screen bg-[#f5f5f5]">
-=======
-    <div className="min-h-screen bg-white">
->>>>>>> 612f09d0ee2957f349cab675c0f7ac358bb88076
       <SEO
         title="PromptBI - AI-Powered Business Intelligence Platform for Data Analysts"
         description="Transform raw data into strategic decisions with PromptBI. Join 800+ data analysts using AI to automate reports, integrate data sources, and advance their careers."
@@ -62,7 +51,6 @@ export default function HomePage() {
         structuredData={structuredData}
       />
       <Navigation onCTAClick={() => handleCTAClick('navigation')} />
-<<<<<<< HEAD
       <div className="pt-20">
         <Hero onCTAClick={() => handleCTAClick('hero')} />
         <FeaturedPlans />
@@ -71,14 +59,6 @@ export default function HomePage() {
         <TrustedBy />
         <Footer />
       </div>
-=======
-      <Hero onCTAClick={() => handleCTAClick('hero')} />
-      <DataIntegration />
-      <ChatWithData />
-      <HireExperts />
-      <Partners />
-      <Footer />
->>>>>>> 612f09d0ee2957f349cab675c0f7ac358bb88076
 
       <BetaSignupForm
         isOpen={showBetaForm}

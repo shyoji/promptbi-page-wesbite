@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight, MapPin, DollarSign, CheckCircle2, Star, Award, Briefcase, Clock, TrendingUp, ArrowUpRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTypewriter } from '../hooks/useTypewriter';
 
 interface Expert {
   name: string;
@@ -28,6 +29,36 @@ interface Expert {
 export default function HireExperts() {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const { displayedText: headerText } = useTypewriter({
+    text: 'Analysts That Think Like a CEO',
+    speed: 35,
+    delay: 200,
+    enabled: isVisible
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const experts: Expert[] = [
@@ -102,7 +133,7 @@ export default function HireExperts() {
   };
 
   return (
-    <section className="relative py-40 md:py-48 px-6 overflow-hidden bg-gray-50">
+    <section ref={sectionRef} className="relative py-40 md:py-48 px-6 overflow-hidden bg-gray-50">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,0.03),transparent_70%)]" />
 
       <div className="max-w-7xl mx-auto relative">
@@ -113,10 +144,13 @@ export default function HireExperts() {
           </div>
 
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 tracking-tight leading-[1.1]">
-            Grow Your Data Team with
+            Grow Your Data Team With
             <br />
-            <span className="text-gray-900">
-              Analysts that think like a CEO
+            <span className="text-gray-900 min-h-[1.2em] inline-block">
+              {headerText}
+              {isVisible && headerText.length < 'Analysts That Think Like a CEO'.length && (
+                <span className="animate-pulse">|</span>
+              )}
             </span>
           </h2>
 
@@ -311,12 +345,12 @@ export default function HireExperts() {
             onClick={() => navigate('/leaderboard')}
             className="group relative inline-flex items-center justify-center gap-3 px-16 py-6 bg-gray-900 text-white text-xl font-bold rounded-full transition-all shadow-2xl hover:shadow-3xl transform hover:scale-[1.02] active:scale-95"
           >
-            <span className="relative">Checkout the leaderboard</span>
+            <span className="relative">Check Out the Leaderboard</span>
             <ArrowUpRight className="relative w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" strokeWidth={2.5} />
           </button>
           <p className="mt-6 text-lg text-gray-600 flex items-center justify-center gap-2">
             <CheckCircle2 className="w-5 h-5 text-gray-900" />
-            <span>All analysts are vetted, skilled, and ready to start immediately</span>
+            <span>All Analysts Are Vetted, Skilled, and Ready to Start Immediately</span>
           </p>
         </div>
       </div>

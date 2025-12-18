@@ -7,17 +7,13 @@ export default function ChatWithData() {
         <div className="text-center mb-24">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-10">
             <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
-            <span className="text-sm font-semibold text-white/90 tracking-wide uppercase">Conversational Analytics</span>
+            <span className="text-sm font-semibold text-white/90 tracking-wide uppercase">How It Works</span>
           </div>
 
           <h2 className="text-6xl sm:text-7xl md:text-8xl font-bold mb-10 leading-[1] tracking-tight">
-            <span className="block text-white">Talk to your data.</span>
-            <span className="block text-white/50 mt-4">Get instant answers.</span>
+            <span className="block text-white">A Job Simulation That Feels Like a Mini-Project </span>
+            <span className="block text-white/50 mt-4">And a Game...</span>
           </h2>
-
-          <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            No SQL. No technical barriers. Just natural conversations that unlock insights from your data in seconds.
-          </p>
         </div>
 
         <div className="max-w-6xl mx-auto">

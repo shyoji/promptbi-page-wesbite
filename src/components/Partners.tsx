@@ -7,11 +7,7 @@ export default function Partners() {
             Trusted by Industry Leaders
           </h2>
           <p className="text-lg text-gray-600">
-<<<<<<< HEAD
             Partnering With Leading Data Analysts to Empower Data Talent
-=======
-            Partnering with leading Data Analysts to empower data talent
->>>>>>> 612f09d0ee2957f349cab675c0f7ac358bb88076
           </p>
         </div>
 
