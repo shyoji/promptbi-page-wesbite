@@ -160,7 +160,7 @@ export default function BetaSignupForm({ isOpen, onClose, source }: BetaSignupFo
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-2xl font-black text-gray-900 mb-2">
-                        Let's get to know you
+                        Let's Get To Know You
                       </h3>
                       <p className="text-sm text-gray-600">Tell us a bit about yourself</p>
                     </div>

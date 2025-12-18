@@ -37,7 +37,7 @@ export default function Community() {
             Join the <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Movement</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Learn together, grow together, win together
+            Learn Together, Grow Together, Win Together
           </p>
         </div>
 
