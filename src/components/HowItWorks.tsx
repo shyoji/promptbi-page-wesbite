@@ -61,21 +61,23 @@ export default function HowItWorks() {
     : "Create a Job Simulation";
 
   return (
-    <section id="how-it-works" className="py-24 md:py-32 px-6 bg-white">
-      <div className="max-w-3xl mx-auto">
+    <section id="how-it-works" className="relative py-24 md:py-32 px-6 bg-gradient-to-b from-white via-blue-50/30 to-white overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:64px_64px]" />
+
+      <div className="max-w-3xl mx-auto relative">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-4">
             How it works
           </h2>
         </div>
 
         <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-gray-100 rounded-lg p-1">
+          <div className="inline-flex bg-gray-100/80 backdrop-blur-sm rounded-xl p-1.5 shadow-sm">
             <button
               onClick={() => setActiveTab('analysts')}
-              className={`px-6 py-2.5 rounded-md text-sm font-medium transition-all ${
+              className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
                 activeTab === 'analysts'
-                  ? 'bg-white text-gray-900 shadow-sm'
+                  ? 'bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg shadow-blue-500/25'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -83,9 +85,9 @@ export default function HowItWorks() {
             </button>
             <button
               onClick={() => setActiveTab('hiring')}
-              className={`px-6 py-2.5 rounded-md text-sm font-medium transition-all ${
+              className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
                 activeTab === 'hiring'
-                  ? 'bg-white text-gray-900 shadow-sm'
+                  ? 'bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg shadow-blue-500/25'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -94,17 +96,17 @@ export default function HowItWorks() {
           </div>
         </div>
 
-        <div className="space-y-8 mb-10">
+        <div className="space-y-6 mb-10">
           {steps.map((step) => (
             <div
               key={step.number}
-              className="flex gap-4 items-start"
+              className="flex gap-5 items-start p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 hover:border-blue-300/50 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300"
             >
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center text-sm font-medium">
+              <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-violet-600 text-white flex items-center justify-center text-base font-bold shadow-lg shadow-blue-500/25">
                 {step.number}
               </div>
-              <div className="flex-1 pt-0.5">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <div className="flex-1 pt-1">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {step.title}
                 </h3>
                 <p className="text-base text-gray-600 leading-relaxed">
@@ -115,9 +117,9 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        <div className="bg-gray-50 rounded-lg p-6 mb-8">
+        <div className="bg-gradient-to-br from-blue-50 via-violet-50/50 to-blue-50 border border-blue-200/50 rounded-2xl p-8 mb-10 shadow-lg shadow-blue-500/10">
           <p className="text-base text-gray-900 leading-relaxed">
-            <span className="font-semibold">Result: </span>
+            <span className="font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">Result: </span>
             {result}
           </p>
         </div>
@@ -125,10 +127,10 @@ export default function HowItWorks() {
         <div className="text-center">
           <a
             href="#"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white text-base font-medium rounded-lg hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-base font-semibold rounded-xl hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 active:scale-95 transition-all duration-300"
           >
             {ctaText}
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-5 h-5" />
           </a>
         </div>
       </div>

@@ -39,7 +39,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f5f5f5]">
+    <div className="min-h-screen bg-white">
       <SEO
         title="PromptBI - AI-Powered Business Intelligence Platform for Data Analysts"
         description="Transform raw data into strategic decisions with PromptBI. Join 800+ data analysts using AI to automate reports, integrate data sources, and advance their careers."

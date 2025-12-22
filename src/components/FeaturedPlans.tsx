@@ -21,32 +21,31 @@ interface PlanCardProps {
 
 function PlanCard({ hackathon, bgColor, textColor = 'text-black', delay, isVisible }: PlanCardProps) {
   return (
-    <Link
-      to={`/hackathons/${hackathon.slug}`}
-      className="block relative p-8 border border-gray-200/60 rounded-3xl bg-white group overflow-hidden transition-all duration-700 hover:scale-[1.04] hover:-translate-y-3 hover:border-gray-900 premium-shadow hover:premium-shadow-lg"
+    <a
+      href="https://app.promptbi.ai/"
+      className="block relative p-6 md:p-7 border border-gray-200/50 rounded-2xl bg-white/80 backdrop-blur-sm group overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:border-blue-300/50 hover:shadow-xl hover:shadow-blue-500/10"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/60 via-white to-gray-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(32,57,229,0.03),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#2039E5] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-t-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-violet-50/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-2xl" />
 
       <div className="relative z-10">
-        <div className="mb-6">
-          <div className="flex items-center gap-2.5 mb-5">
-            <span className="text-xs font-bold text-gray-500 uppercase tracking-wider group-hover:text-[#2039E5] transition-colors duration-500">{hackathon.partner_name || 'LIVE'}</span>
-            <div className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-[#2039E5] group-hover:animate-pulse transition-colors duration-500" />
+        <div className="mb-5">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xs font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent uppercase tracking-wider">{hackathon.partner_name || 'LIVE'}</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
           </div>
-          <h3 className="text-xl font-bold text-[#0A0A0A] mb-4 leading-tight tracking-[-0.02em] group-hover:text-[#2039E5] transition-colors duration-500">
+          <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight tracking-tight group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-violet-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
             {hackathon.title}
           </h3>
-          <p className="text-base text-gray-600 leading-relaxed group-hover:text-gray-800 transition-colors duration-500">{hackathon.description}</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{hackathon.description}</p>
         </div>
 
-        <div className="flex items-center justify-between pt-4 border-t border-gray-100 group-hover:border-gray-200 transition-colors duration-500">
-          <div className="text-sm font-semibold text-gray-500 group-hover:text-[#0A0A0A] transition-colors duration-500">
+        <div className="flex items-center justify-between pt-4 border-t border-gray-200/50">
+          <div className="text-xs font-semibold text-gray-500">
             {hackathon.registered_participants.toLocaleString()} participants
           </div>
           <svg
-            className="w-6 h-6 text-gray-400 group-hover:text-[#2039E5] transform translate-x-0 group-hover:translate-x-2 transition-all duration-500"
+            className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -55,7 +54,7 @@ function PlanCard({ hackathon, bgColor, textColor = 'text-black', delay, isVisib
           </svg>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
 
@@ -118,21 +117,22 @@ export default function FeaturedPlans() {
   ];
 
   return (
-    <section ref={sectionRef} className="bg-white px-6 py-20 md:py-28">
-      <div className="max-w-7xl mx-auto">
+    <section ref={sectionRef} className="relative bg-gradient-to-b from-white via-slate-50/50 to-white px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-28 overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:64px_64px]" />
+      <div className="max-w-7xl mx-auto relative">
         {loading ? (
-          <div className="flex justify-center items-center py-20">
+          <div className="flex justify-center items-center py-12 sm:py-20">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
           </div>
         ) : (
           <>
-            <div className="max-w-4xl mx-auto text-center mb-24">
-              <div className="relative max-w-3xl mx-auto">
-                <div className="relative rounded-2xl overflow-hidden border-2 border-gray-200 shadow-lg">
-                  <div className="relative pb-[56.25%] bg-gray-100">
+            <div className="w-full max-w-7xl mx-auto text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 xl:mb-24 px-2 sm:px-4 md:px-6 lg:px-8">
+              <div className="relative w-full mx-auto">
+                <div className="relative rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 sm:border-2 shadow-lg sm:shadow-xl shadow-blue-500/10">
+                  <div className="relative pb-[75%] sm:pb-[70%] md:pb-[65%] lg:pb-[60%] xl:pb-[56.25%] bg-gray-100">
                     <iframe
                       className="absolute top-0 left-0 w-full h-full"
-                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      src="https://www.youtube.com/embed/GjYLDkfNKZo"
                       title="Product Demo Video"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
@@ -142,15 +142,19 @@ export default function FeaturedPlans() {
               </div>
             </div>
 
-            <div className="text-center mb-16">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight tracking-tight">
-                Filter 70% of unqualified candidates
+            <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight tracking-tight">
+                <span className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                  Filter 70% of unqualified candidates
+                </span>
                 <br />
-                before interviews
+                <span className="bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 bg-clip-text text-transparent">
+                  before interviews
+                </span>
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-8 sm:mb-10 md:mb-12">
               {hackathons.map((hackathon, index) => (
                 <PlanCard
                   key={hackathon.id}
@@ -162,20 +166,20 @@ export default function FeaturedPlans() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-20">
-              <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center px-4">
+              <div className="flex flex-col items-center gap-2 w-full sm:w-auto">
                 <Link
                   to="/hackathons"
-                  className="px-8 py-4 text-base font-medium text-gray-900 bg-white border-2 border-gray-900 rounded-xl hover:bg-gray-900 hover:text-white transition-all duration-200 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full sm:w-auto px-8 py-4 text-sm sm:text-base font-semibold text-gray-900 bg-white/80 backdrop-blur-sm border-2 border-gray-200 rounded-xl hover:border-gray-300 hover:bg-white hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 text-center"
                 >
                   See a Real Hiring Simulation
                 </Link>
                 <span className="text-xs text-gray-500 font-medium tracking-wide">Hiring Teams</span>
               </div>
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-2 w-full sm:w-auto">
                 <Link
                   to="/hackathons"
-                  className="px-8 py-4 text-base font-medium text-white bg-[#2039E5] border-2 border-[#2039E5] rounded-xl hover:bg-[#1a2fb8] hover:border-[#1a2fb8] transition-all duration-200 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full sm:w-auto px-8 py-4 text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-violet-600 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 active:scale-95 text-center"
                 >
                   Try a Real Job Simulation
                 </Link>
